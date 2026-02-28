@@ -15,8 +15,7 @@ type Handler<TEvent extends Record<string, any> = Record<string, any>> = (
 
 export class RedisPubSubDriver<
   TEvent extends Record<string, any> = Record<string, any>,
-> implements MessageQueue
-{
+> implements MessageQueue {
   private handlers = new Map<keyof TEvent, MessageHandler>();
   public constructor(public readonly broker: PubSubRedisBroker<TEvent>) {}
 

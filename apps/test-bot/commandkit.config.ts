@@ -4,15 +4,16 @@ import { devtools } from '@commandkit/devtools';
 import { cache } from '@commandkit/cache';
 import { ai } from '@commandkit/ai';
 import { tasks, setDriver } from '@commandkit/tasks';
-import { BullMQDriver } from '@commandkit/tasks/bullmq';
+import { SQLiteDriver } from '@commandkit/tasks/sqlite';
 import { workflow } from '@commandkit/workflow';
 
 noBuildOnly(() => {
-  setDriver(
-    new BullMQDriver({
-      maxRetriesPerRequest: null,
-    }),
-  );
+  setDriver(new SQLiteDriver());
+  // setDriver(
+  //   new BullMQDriver({
+  //     maxRetriesPerRequest: null,
+  //   }),
+  // );
 })();
 
 export default defineConfig({

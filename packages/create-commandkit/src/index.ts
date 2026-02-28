@@ -117,7 +117,7 @@ Examples:
         placeholder: 'Leave blank for current directory',
         defaultValue: '.',
         validate: (value) => {
-          value = path.resolve(process.cwd(), value);
+          value = path.resolve(process.cwd(), value ?? '.');
           const validation = validateDirectory(value);
           return validation.valid ? undefined : validation.error;
         },

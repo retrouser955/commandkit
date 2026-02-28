@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/ms": "^2.0.0",
     "commandkit": "workspace:*",
-    "ioredis": "^5.8.1",
+    "ioredis": "^5.10.0",
     "tsconfig": "workspace:*",
     "typescript": "catalog:build"
   },

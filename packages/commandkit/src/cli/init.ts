@@ -25,9 +25,8 @@ export async function bootstrapCommandkitCLI(
   // imports are lazily loaded when the cli is used, instead of loading it with the lib itself
   const { Command } = await import('commander');
   const { bootstrapDevelopmentServer } = await import('./development');
-  const { bootstrapProductionServer, createProductionBuild } = await import(
-    './production'
-  );
+  const { bootstrapProductionServer, createProductionBuild } =
+    await import('./production');
   const { generateCommand, generateEvent } = await import('./generators');
   const { version } = await import('../version');
   const { showInformation } = await import('./information');

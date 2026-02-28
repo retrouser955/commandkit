@@ -196,6 +196,7 @@ export class I18nPlugin extends RuntimePlugin<LocalizationPluginOptions> {
         escapeValue: false,
         skipOnVariables: false,
       },
+      showSupportNotice: false,
       ...this.options.i18nOptions,
       backend: this.getBackendOptions(),
     });

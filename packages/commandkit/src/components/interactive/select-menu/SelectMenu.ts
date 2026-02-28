@@ -41,7 +41,8 @@ export interface CommonSelectMenuProps<T, C> {
  * Type for the base select menu component data.
  */
 export interface SelectMenuProps<T, C>
-  extends Partial<Omit<BaseSelectMenuComponentData, 'type' | 'required'>>,
+  extends
+    Partial<Omit<BaseSelectMenuComponentData, 'type' | 'required'>>,
     CommonSelectMenuProps<T, C> {
   required?: boolean;
 }
@@ -49,8 +50,10 @@ export interface SelectMenuProps<T, C>
 /**
  * The properties for a string select menu component.
  */
-export interface StringSelectMenuProps
-  extends SelectMenuProps<StringSelectMenuInteraction, StringSelectMenuKit> {
+export interface StringSelectMenuProps extends SelectMenuProps<
+  StringSelectMenuInteraction,
+  StringSelectMenuKit
+> {
   children?: MaybeArray<StringSelectMenuOptionBuilder>;
 }
 
@@ -194,7 +197,8 @@ export function StringSelectMenuOption(props: StringSelectMenuOptionProps) {
  * The UserSelectMenu component.
  */
 export interface UserSelectMenuProps
-  extends Partial<Omit<UserSelectMenuComponentData, 'type' | 'defaultValues'>>,
+  extends
+    Partial<Omit<UserSelectMenuComponentData, 'type' | 'defaultValues'>>,
     CommonSelectMenuProps<UserSelectMenuInteraction, UserSelectMenuKit> {
   defaultValues?: MaybeArray<string | Snowflake>;
 }
@@ -229,7 +233,8 @@ export function UserSelectMenu(props: UserSelectMenuProps) {
  * The RoleSelectMenu component props.
  */
 export interface RoleSelectMenuProps
-  extends Partial<Omit<RoleSelectMenuComponentData, 'type'>>,
+  extends
+    Partial<Omit<RoleSelectMenuComponentData, 'type'>>,
     CommonSelectMenuProps<RoleSelectMenuInteraction, RoleSelectMenuKit> {}
 
 /**
@@ -262,7 +267,8 @@ export function RoleSelectMenu(props: RoleSelectMenuProps) {
  * The MentionableSelectMenu component props.
  */
 export interface MentionableSelectMenuProps
-  extends Partial<Omit<MentionableSelectMenuComponentData, 'type'>>,
+  extends
+    Partial<Omit<MentionableSelectMenuComponentData, 'type'>>,
     CommonSelectMenuProps<
       MentionableSelectMenuInteraction,
       MentionableSelectMenuKit
@@ -297,7 +303,8 @@ export function MentionableSelectMenu(props: MentionableSelectMenuProps) {
  * The ChannelSelectMenu component props.
  */
 export interface ChannelSelectMenuProps
-  extends Partial<Omit<ChannelSelectMenuComponentData, 'type'>>,
+  extends
+    Partial<Omit<ChannelSelectMenuComponentData, 'type'>>,
     CommonSelectMenuProps<ChannelSelectMenuInteraction, ChannelSelectMenuKit> {}
 
 /**

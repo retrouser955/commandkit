@@ -8,8 +8,10 @@ import { applyId } from './common';
 /**
  * The label properties for the label component.
  */
-export interface LabelProps
-  extends Omit<LabelBuilderData, 'component' | 'type'> {
+export interface LabelProps extends Omit<
+  LabelBuilderData,
+  'component' | 'type'
+> {
   /**
    * The component that will be wrapped by the label component.
    */

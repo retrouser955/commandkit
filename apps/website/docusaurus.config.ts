@@ -25,7 +25,6 @@ const config: Config = {
   url: 'https://commandkit.dev',
   baseUrl: '/',
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -208,6 +207,10 @@ const config: Config = {
   ],
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownImages: 'warn',
+    },
   },
   themes: ['@docusaurus/theme-mermaid'],
 };

@@ -8,8 +8,9 @@ import {
 /**
  * The poll properties for the poll component.
  */
-export interface PollProps
-  extends Partial<Omit<PollData, 'question' | 'answers'>> {
+export interface PollProps extends Partial<
+  Omit<PollData, 'question' | 'answers'>
+> {
   /**
    * The poll children components (question and answers).
    */

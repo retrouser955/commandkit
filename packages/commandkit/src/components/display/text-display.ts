@@ -10,8 +10,10 @@ export type StringEncodable = string | number | boolean;
  * This interface extends the TextDisplayComponentData type from discord.js,
  * excluding the 'type' and 'content' properties.
  */
-export interface TextDisplayProps
-  extends Omit<TextDisplayComponentData, 'type' | 'content'> {
+export interface TextDisplayProps extends Omit<
+  TextDisplayComponentData,
+  'type' | 'content'
+> {
   children?: StringEncodable | StringEncodable[];
   content?: string;
 }

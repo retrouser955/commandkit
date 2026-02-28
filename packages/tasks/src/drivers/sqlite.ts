@@ -129,7 +129,7 @@ export class SQLiteDriver implements TaskDriver {
     if (typeof schedule === 'string') {
       scheduleType = 'cron';
       scheduleValue = schedule;
-      const interval = cronParser.parseExpression(schedule, {
+      const interval = cronParser.parse(schedule, {
         tz: timezone,
       });
       nextRun = interval.next().getTime();
@@ -260,7 +260,7 @@ export class SQLiteDriver implements TaskDriver {
     if (job.schedule_type === 'cron') {
       let nextRun: number | null = null;
       try {
-        const interval = cronParser.parseExpression(job.schedule_value, {
+        const interval = cronParser.parse(job.schedule_value, {
           tz: job.timezone || undefined,
         });
         // Find the next run after now

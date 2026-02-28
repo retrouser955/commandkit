@@ -16,8 +16,10 @@ import { applyId } from './common';
 /**
  * Represents the properties for a container component.
  */
-export interface ContainerProps
-  extends Omit<ContainerComponentData, 'type' | 'components' | 'accentColor'> {
+export interface ContainerProps extends Omit<
+  ContainerComponentData,
+  'type' | 'components' | 'accentColor'
+> {
   accentColor?: ColorResolvable;
   children?: ComponentBuilder[];
 }

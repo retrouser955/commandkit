@@ -21,7 +21,6 @@
     "@commandkit/workflow": "workspace:*",
     "commandkit": "workspace:*",
     "discord.js": "catalog:discordjs",
-    "dotenv": "^16.4.7",
     "ms": "^2.1.3",
     "workflow": "catalog:workflow",
     "zod": "^4.3.6"
@@ -29,6 +28,6 @@
   "devDependencies": {
     "@types/ms": "^2.1.0",
     "cross-env": "^10.1.0",
-    "tsx": "^4.7.0"
+    "tsx": "^4.21.0"
   }
 }

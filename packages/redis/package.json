@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/neplextech/commandkit#readme",
   "dependencies": {
-    "ioredis": "^5.4.2"
+    "ioredis": "^5.10.0"
   },
   "devDependencies": {
     "@commandkit/cache": "workspace:*",

@@ -47,12 +47,12 @@
   },
   "homepage": "https://github.com/neplextech/commandkit#readme",
   "devDependencies": {
-    "bullmq": "^5.56.5",
+    "bullmq": "^5.70.1",
     "commandkit": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "catalog:build"
   },
   "dependencies": {
-    "cron-parser": "^4.9.0"
+    "cron-parser": "^5.5.0"
   }
 }

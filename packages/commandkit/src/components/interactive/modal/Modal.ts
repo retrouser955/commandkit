@@ -162,8 +162,10 @@ export function ParagraphInput(
   return TextInput({ ...props, style: TextInputStyle.Paragraph });
 }
 
-export interface FileUploadProps
-  extends Omit<FileUploadComponentData, 'type' | 'required'> {
+export interface FileUploadProps extends Omit<
+  FileUploadComponentData,
+  'type' | 'required'
+> {
   id?: number;
   required?: boolean;
 }
