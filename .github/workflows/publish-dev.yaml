@@ -67,7 +67,7 @@ jobs:
           for entry in "${PACKAGES[@]}"; do
             IFS=":" read -r name path <<< "$entry"
             echo "Publishing $name..."
-            (pnpm --filter="$name" publish --no-git-checks --access public --tag dev && echo "✅ Published $name") || echo "❌ Failed to publish $name"
+            (pnpm --filter="$name" publish --no-git-checks --provenance --access public --tag dev && echo "✅ Published $name") || echo "❌ Failed to publish $name"
           done
 
       - name: Deprecate previous development versions

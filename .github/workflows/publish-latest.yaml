@@ -8,10 +8,15 @@ on:
         required: true
         type: string
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   publish:
     name: Publish latest builds
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: pnpm/action-setup@v4
         with:
@@ -56,8 +61,6 @@ jobs:
         run: pnpm dlx turbo build --filter='./packages/*'
 
       - name: Publish packages
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           PACKAGES=(
             "commandkit:packages/commandkit"

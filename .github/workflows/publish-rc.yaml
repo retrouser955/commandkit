@@ -12,6 +12,7 @@ jobs:
   publish:
     name: Publish release candidate builds
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: pnpm/action-setup@v4
         with:
@@ -70,6 +71,7 @@ jobs:
             "@commandkit/ai:packages/ai"
             "@commandkit/queue:packages/queue"
             "@commandkit/tasks:packages/tasks"
+            "@commandkit/workflow:packages/workflow"
           )
 
           for entry in "${PACKAGES[@]}"; do
@@ -81,7 +83,7 @@ jobs:
             if npm view "$name@$VERSION" version >/dev/null 2>&1; then
               echo "📦 $name@$VERSION already exists on npm, skipping..."
             else
-              if pnpm --filter="$name" publish --no-git-checks --access public --tag next; then
+              if pnpm --filter="$name" publish --no-git-checks --provenance --access public --tag next; then
                 echo "✅ Published $name@$VERSION under 'next' tag"
               else
                 if npm view "$name@$VERSION" version >/dev/null 2>&1; then
@@ -109,6 +111,7 @@ jobs:
             "@commandkit/ai"
             "@commandkit/queue"
             "@commandkit/tasks"
+            "@commandkit/workflow"
           )
 
           for pkg in "${PACKAGES[@]}"; do
