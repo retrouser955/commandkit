@@ -10,7 +10,7 @@ cleanup, the tasks plugin has you covered.
 ## Installation
 
 ```bash
-npm install @commandkit/tasks@next
+npm install @commandkit/tasks
 ```
 
 ## Basic setup
@@ -160,11 +160,10 @@ export default defineConfig({
 });
 ```
 
-:::warning
-Avoid loading the code that keeps the event loop alive inside the build process.
-Otherwise the build command will never exit. Use the helper functions such as `buildOnly()` or `noBuildOnly()`
-to conditionally load the code in appropriate places.
-:::
+:::warning Avoid loading the code that keeps the event loop alive
+inside the build process. Otherwise the build command will never exit.
+Use the helper functions such as `buildOnly()` or `noBuildOnly()` to
+conditionally load the code in appropriate places. :::
 
 ## Creating your first task
 

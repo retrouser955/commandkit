@@ -6,27 +6,34 @@ description: Learn how to use the CommandKit CLI API for advanced use cases
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `commandkit/cli` module provides programmatic access to CommandKit's CLI functionality. This API is **not recommended for normal use cases** but can be useful in specific situations where you need to integrate CommandKit's build and development processes into custom tooling or scripts.
+The `commandkit/cli` module provides programmatic access to
+CommandKit's CLI functionality. This API is **not recommended for
+normal use cases** but can be useful in specific situations where you
+need to integrate CommandKit's build and development processes into
+custom tooling or scripts.
 
-:::warning Advanced Usage Only
-This API is intended for advanced users who need to integrate CommandKit into custom build systems or development workflows. For most users, the standard CLI commands (`commandkit dev`, `commandkit build`, etc.) should be sufficient.
-:::
+:::warning Advanced Usage Only This API is intended for advanced users
+who need to integrate CommandKit into custom build systems or
+development workflows. For most users, the standard CLI commands
+(`commandkit dev`, `commandkit build`, etc.) should be sufficient. :::
 
 ## Installation
 
 The CLI API is available as part of the main CommandKit package:
 
 ```sh npm2yarn
-npm install commandkit@next
+npm install commandkit
 ```
 
 ## Available Modules
 
-The CLI API is organized into several modules, each providing specific functionality:
+The CLI API is organized into several modules, each providing specific
+functionality:
 
 ### Development Module
 
-The `development` module provides functions for running CommandKit in development mode with hot module reloading.
+The `development` module provides functions for running CommandKit in
+development mode with hot module reloading.
 
 ```ts
 import { development } from 'commandkit/cli';
@@ -43,7 +50,8 @@ const process = devServer.getProcess();
 
 **Key Functions:**
 
-- `bootstrapDevelopmentServer(configPath?: string)` - Starts the development server with file watching and HMR
+- `bootstrapDevelopmentServer(configPath?: string)` - Starts the
+  development server with file watching and HMR
 
 ### Production Module
 
@@ -63,8 +71,10 @@ const server = await production.bootstrapProductionServer(
 
 **Key Functions:**
 
-- `createProductionBuild(configPath?: string)` - Creates an optimized production build
-- `bootstrapProductionServer(configPath?: string)` - Starts the production server
+- `createProductionBuild(configPath?: string)` - Creates an optimized
+  production build
+- `bootstrapProductionServer(configPath?: string)` - Starts the
+  production server
 
 ### Environment Module
 
@@ -85,8 +95,10 @@ env.setCLIEnv();
 
 **Key Functions:**
 
-- `DevEnv(static?: boolean)` - Returns development environment variables
-- `ProdEnv(static?: boolean)` - Returns production environment variables
+- `DevEnv(static?: boolean)` - Returns development environment
+  variables
+- `ProdEnv(static?: boolean)` - Returns production environment
+  variables
 - `setCLIEnv()` - Sets the CLI environment flag
 
 ### CLI Module
@@ -102,7 +114,8 @@ await cli.bootstrapCommandkitCLI(['dev', '--config', './custom.config.ts']);
 
 **Key Functions:**
 
-- `bootstrapCommandkitCLI(argv: string[], options?: ParseOptions)` - Bootstraps the CLI with custom arguments
+- `bootstrapCommandkitCLI(argv: string[], options?: ParseOptions)` -
+  Bootstraps the CLI with custom arguments
 
 ### Compiler Module
 
@@ -122,11 +135,13 @@ await compiler.buildApplication({
 
 **Key Functions:**
 
-- `buildApplication(options: ApplicationBuildOptions)` - Builds the application with custom options
+- `buildApplication(options: ApplicationBuildOptions)` - Builds the
+  application with custom options
 
 ### App Process Module
 
-The `appProcess` module manages child processes for running applications.
+The `appProcess` module manages child processes for running
+applications.
 
 ```ts
 import { appProcess } from 'commandkit/cli';
@@ -141,11 +156,13 @@ const process = appProcess.createAppProcess(
 
 **Key Functions:**
 
-- `createAppProcess(fileName: string, cwd: string, isDev: boolean)` - Creates a new application process
+- `createAppProcess(fileName: string, cwd: string, isDev: boolean)` -
+  Creates a new application process
 
 ### Type Checker Module
 
-The `typeChecker` module provides TypeScript type checking functionality.
+The `typeChecker` module provides TypeScript type checking
+functionality.
 
 ```ts
 import { typeChecker } from 'commandkit/cli';
@@ -156,11 +173,13 @@ await typeChecker.performTypeCheck('./src');
 
 **Key Functions:**
 
-- `performTypeCheck(path: string)` - Performs TypeScript type checking on the specified path
+- `performTypeCheck(path: string)` - Performs TypeScript type checking
+  on the specified path
 
 ### Utilities Module
 
-The `utilities` module provides common utility functions used throughout the CLI.
+The `utilities` module provides common utility functions used
+throughout the CLI.
 
 ```ts
 import { utilities } from 'commandkit/cli';
@@ -177,15 +196,19 @@ utilities.panic('Something went wrong!');
 
 **Key Functions:**
 
-- `findEntrypoint(dir: string)` - Finds the entrypoint file in a directory
+- `findEntrypoint(dir: string)` - Finds the entrypoint file in a
+  directory
 - `write(message: any)` - Writes a message to stdout
 - `panic(message: any)` - Exits the process with an error message
-- `loadTypeScript(errorMessage?: string)` - Loads TypeScript dynamically
-- `loadConfigFileFromPath(target: string)` - Loads configuration from a specific path
+- `loadTypeScript(errorMessage?: string)` - Loads TypeScript
+  dynamically
+- `loadConfigFileFromPath(target: string)` - Loads configuration from
+  a specific path
 
 ## Example: Custom Build Script
 
-Here's an example of how you might use the CLI API to create a custom build script:
+Here's an example of how you might use the CLI API to create a custom
+build script:
 
 ```ts
 import { production, compiler, typeChecker } from 'commandkit/cli';
@@ -213,7 +236,8 @@ customBuild();
 
 ## Example: Custom Development Server
 
-Here's an example of creating a custom development server with additional functionality:
+Here's an example of creating a custom development server with
+additional functionality:
 
 ```ts
 import { development, env } from 'commandkit/cli';
@@ -244,15 +268,23 @@ customDevServer();
 
 ## Important Notes
 
-1. **Internal API**: These functions are marked as `@private` and `@internal`, meaning they may change without notice in future versions.
+1. **Internal API**: These functions are marked as `@private` and
+   `@internal`, meaning they may change without notice in future
+   versions.
 
-2. **Error Handling**: Always wrap CLI API calls in try-catch blocks as they may throw errors.
+2. **Error Handling**: Always wrap CLI API calls in try-catch blocks
+   as they may throw errors.
 
-3. **Process Management**: When using `createAppProcess`, make sure to properly manage the returned child process.
+3. **Process Management**: When using `createAppProcess`, make sure to
+   properly manage the returned child process.
 
-4. **Configuration**: Most functions accept an optional `configPath` parameter. If not provided, they will look for configuration files in the current working directory.
+4. **Configuration**: Most functions accept an optional `configPath`
+   parameter. If not provided, they will look for configuration files
+   in the current working directory.
 
-5. **Environment Variables**: The environment modules provide pre-configured environment variables for development and production modes.
+5. **Environment Variables**: The environment modules provide
+   pre-configured environment variables for development and production
+   modes.
 
 ## When to Use the CLI API
 
@@ -261,7 +293,9 @@ Consider using the CLI API when you need to:
 - Integrate CommandKit into existing build systems
 - Create custom development workflows
 - Build tooling that wraps CommandKit functionality
-- Implement custom file watching or hot reloading (though we recommend using the plugins api for this)
+- Implement custom file watching or hot reloading (though we recommend
+  using the plugins api for this)
 - Create automated deployment scripts
 
-For most use cases, the standard CLI commands should be sufficient and are the recommended approach.
+For most use cases, the standard CLI commands should be sufficient and
+are the recommended approach.

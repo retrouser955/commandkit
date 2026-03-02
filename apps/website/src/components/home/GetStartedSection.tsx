@@ -23,9 +23,7 @@ export default function GetStartedSection(): React.JSX.Element {
             <div className="font-mono text-white">
               <div className="flex gap-1">
                 <span className="text-gray-400">$</span>
-                <span className="text-cyan-300">
-                  npm create commandkit@next
-                </span>
+                <span className="text-cyan-300">npm create commandkit</span>
               </div>
               <div className="text-gray-400 mt-2">
                 # Follow the interactive setup

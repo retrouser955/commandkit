@@ -41,7 +41,7 @@ language models.
 Install the plugin and your preferred AI SDK:
 
 ```bash npm2yarn
-npm install @commandkit/ai@next
+npm install @commandkit/ai
 ```
 
 You also need to install the AI SDK for the model you want to use. For
@@ -67,17 +67,21 @@ export default defineConfig({
 });
 ```
 
-Then create an AI configuration file to set up your AI model. This can be done in two ways, one via CLI and another manually.
+Then create an AI configuration file to set up your AI model. This can
+be done in two ways, one via CLI and another manually.
 
 ### With CLI
 
-Use the following command to automatically generate `ai.ts` (or js) file in the project:
+Use the following command to automatically generate `ai.ts` (or js)
+file in the project:
 
 ```sh
 commandkit create ai
 ```
 
-This command creates `ai.ts` (or js) file inside the `src` directory with openai o3-mini model. You can change it to any other supported models if needed.
+This command creates `ai.ts` (or js) file inside the `src` directory
+with openai o3-mini model. You can change it to any other supported
+models if needed.
 
 ### Manual
 
@@ -274,9 +278,10 @@ configureAI({
 
 ### Selectively enabling built-in tools
 
-In many cases, you may not need all built-in tools. You can selectively enable
-specific tools by disabling built-in tools and then manually adding only the
-ones you need using the exported `defaultTools` record:
+In many cases, you may not need all built-in tools. You can
+selectively enable specific tools by disabling built-in tools and then
+manually adding only the ones you need using the exported
+`defaultTools` record:
 
 ```ts title="src/ai.ts"
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
@@ -309,8 +314,9 @@ configureAI({
 });
 ```
 
-This approach gives you full control over which built-in tools are available to
-the AI, making your implementation cleaner and more intentional.
+This approach gives you full control over which built-in tools are
+available to the AI, making your implementation cleaner and more
+intentional.
 
 ## Creating custom tools
 
