@@ -175,7 +175,7 @@ const config: Config = {
       </a>
       <br/>
       <br/>
-      GPL-3.0-only © ${new Date().getFullYear()} <a href="https://neplextech.com?utm_source=commandkit" target="_blank" rel="noopener noreferrer">Neplex</a>.`,
+      MIT © ${new Date().getFullYear()} <a href="https://neplextech.com?utm_source=commandkit" target="_blank" rel="noopener noreferrer">Neplex</a>.`,
     },
     prism: {
       theme: prismThemes.vsLight,
